@@ -66,3 +66,62 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* --- Dashboard Layout Helpers --- */
+.container {
+  width: min(1200px, 96vw);
+  margin: 0 auto;
+  padding: 22px;
+}
+
+.grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  min-height: 180px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px;
+  border-radius: 18px;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 600px) {
+  .topbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+h2, h3 {
+  margin: 0 0 10px 0;
+  letter-spacing: 0.2px;
+}
+
+input {
+  outline: none;
+}
+
+input:focus {
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
+  border-color: rgba(99, 102, 241, 0.6) !important;
+}
+

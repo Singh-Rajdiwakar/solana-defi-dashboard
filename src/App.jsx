@@ -1,6 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
-import { ConnectionProvider, WalletProvider } from "@solana/wallet-adapter-react";
-import { WalletModalProvider, WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+import {
+  ConnectionProvider,
+  WalletProvider,
+} from "@solana/wallet-adapter-react";
+import {
+  WalletModalProvider,
+  WalletMultiButton,
+} from "@solana/wallet-adapter-react-ui";
 import { PhantomWalletAdapter } from "@solana/wallet-adapter-phantom";
 import { clusterApiUrl } from "@solana/web3.js";
 
@@ -15,7 +21,7 @@ export default function App() {
   const endpoint = useMemo(() => clusterApiUrl("devnet"), []);
   const wallets = useMemo(() => [new PhantomWalletAdapter()], []);
 
-  // ✅ theme persisted
+  // Theme state (persisted)
   const [dark, setDark] = useState(() => localStorage.getItem("theme") === "dark");
 
   useEffect(() => {
@@ -28,13 +34,13 @@ export default function App() {
         cardBg: "#0f1a2b",
         border: "#1f2a3a",
         text: "#e7eefc",
-        muted: "#a9b7d0",
+        muted: "#9fb0c9",
         btnBg: "#15233a",
       }
     : {
         pageBg: "#f6f7fb",
         cardBg: "#ffffff",
-        border: "#e8e8e8",
+        border: "#e5e7eb",
         text: "#111827",
         muted: "#6b7280",
         btnBg: "#ffffff",
@@ -44,39 +50,42 @@ export default function App() {
     <ConnectionProvider endpoint={endpoint}>
       <WalletProvider wallets={wallets} autoConnect>
         <WalletModalProvider>
-        <div
-  style={{
-    minHeight: "100vh",
-    background: theme.pageBg,
-    padding: 24,
-    color: theme.text,
-    transition: "all 0.3s ease",
-  }}
->
+          <div
+            style={{
+              minHeight: "100vh",
+              background: dark
+  ? "radial-gradient(1200px 600px at 20% 0%, rgba(99,102,241,0.18), transparent 60%), #0b1220"
+  : "radial-gradient(1200px 600px at 20% 0%, rgba(99,102,241,0.12), transparent 60%), #f6f7fb",
 
-            <div style={{ maxWidth: 900, margin: "0 auto" }}>
-              {/* Top bar */}
+              color: theme.text,
+              transition: "all 0.3s ease",
+            }}
+          >
+            <div className="container">
+              {/* Top Bar */}
               <div
+                className="topbar"
                 style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  gap: 12,
-                  padding: 18,
-                  borderRadius: 16,
                   background: theme.cardBg,
                   border: `1px solid ${theme.border}`,
                 }}
               >
                 <div>
-                  <div style={{ fontSize: 18, fontWeight: 700 }}>Solana Wallet Dashboard</div>
-                  <div style={{ fontSize: 13, color: theme.muted, marginTop: 4 }}>
+                  <div style={{ fontSize: 20, fontWeight: 800 }}>
+                    Solana Wallet Dashboard
+                  </div>
+                  <div
+                    style={{
+                      fontSize: 13,
+                      color: theme.muted,
+                      marginTop: 4,
+                    }}
+                  >
                     Network: <b>Devnet</b>
                   </div>
                 </div>
 
                 <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                  {/* Dark mode toggle */}
                   <button
                     onClick={() => setDark((v) => !v)}
                     style={{
@@ -86,9 +95,8 @@ export default function App() {
                       padding: "10px 12px",
                       borderRadius: 12,
                       cursor: "pointer",
-                      fontWeight: 600,
+                      fontWeight: 700,
                     }}
-                    title="Toggle theme"
                   >
                     {dark ? "🌙 Dark" : "☀️ Light"}
                   </button>
@@ -98,70 +106,57 @@ export default function App() {
               </div>
 
               {/* Grid */}
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-                  gap: 16,
-                  marginTop: 16,
-                }}
-              >
+              <div className="grid">
                 <div
-  style={{
-    background: theme.cardBg,
-    border: `1px solid ${theme.border}`,
-    borderRadius: 16,
-    transition: "all 0.3s ease",
-  }}
->
-
-                  <div style={{ padding: 16 }}>
-                    <WalletInfo />
-                  </div>
+                  className="card"
+                  style={{
+                    background: theme.cardBg,
+                    border: `1px solid ${theme.border}`,
+                  }}
+                >
+                  <WalletInfo />
                 </div>
 
-              <div
-  style={{
-    background: theme.cardBg,
-    border: `1px solid ${theme.border}`,
-    borderRadius: 16,
-    transition: "all 0.3s ease",
-  }}
->
-
-                  <div style={{ padding: 16 }}>
-                    <SendSol />
-                  </div>
-                </div>
-<div
-  style={{
-    background: theme.cardBg,
-    border: `1px solid ${theme.border}`,
-    borderRadius: 16,
-    transition: "all 0.3s ease",
-  }}
->
-
-                  <div style={{ padding: 16 }}>
-                    <TransactionHistory />
-                  </div>
-                </div>
                 <div
-  style={{
-    background: theme.cardBg,
-    border: `1px solid ${theme.border}`,
-    borderRadius: 16,
-    transition: "all 0.3s ease",
-  }}
->
-  <div style={{ padding: 16 }}>
-    <CreateToken />
-  </div>
-</div>
+                  className="card"
+                  style={{
+                    background: theme.cardBg,
+                    border: `1px solid ${theme.border}`,
+                  }}
+                >
+                  <SendSol />
+                </div>
+
+                <div
+                  className="card"
+                  style={{
+                    background: theme.cardBg,
+                    border: `1px solid ${theme.border}`,
+                  }}
+                >
+                  <TransactionHistory />
+                </div>
+
+                <div
+                  className="card"
+                  style={{
+                    background: theme.cardBg,
+                    border: `1px solid ${theme.border}`,
+                  }}
+                >
+                  <CreateToken />
+                </div>
               </div>
 
               {/* Footer */}
-              <div style={{ marginTop: 18, color: theme.muted, fontSize: 12, textAlign: "center" }}>
+              <div
+                style={{
+                  marginTop: 18,
+                  color: theme.muted,
+                  fontSize: 12,
+                  textAlign: "center",
+                }}
+              >
                 Built with React + Solana Web3.js + Phantom (Devnet)
               </div>
             </div>
