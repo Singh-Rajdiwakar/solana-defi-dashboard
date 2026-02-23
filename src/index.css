@@ -122,6 +122,6 @@ input {
 
 input:focus {
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
-  border-color: rgba(99, 102, 241, 0.6) !important;
+  border-color: rgba(3, 7, 219, 0.6) !important;
 }
 

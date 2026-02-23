@@ -11,8 +11,8 @@ import { PhantomWalletAdapter } from "@solana/wallet-adapter-phantom";
 import { clusterApiUrl } from "@solana/web3.js";
 
 import "@solana/wallet-adapter-react-ui/styles.css";
-
 import WalletInfo from "./components/WalletInfo";
+
 import SendSol from "./components/SendSol";
 import TransactionHistory from "./components/TransactionHistory";
 import CreateToken from "./components/CreateToken";
@@ -34,7 +34,7 @@ export default function App() {
         cardBg: "#0f1a2b",
         border: "#1f2a3a",
         text: "#e7eefc",
-        muted: "#9fb0c9",
+        muted: "#000000",
         btnBg: "#15233a",
       }
     : {

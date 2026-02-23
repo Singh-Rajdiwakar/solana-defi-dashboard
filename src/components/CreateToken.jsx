@@ -68,7 +68,7 @@ export default function CreateToken() {
         style={{
           padding: "10px 14px",
           borderRadius: 10,
-          border: "1px solid #333",
+          border: "1px solid #161616",
           cursor: "pointer",
           fontWeight: 600,
         }}
