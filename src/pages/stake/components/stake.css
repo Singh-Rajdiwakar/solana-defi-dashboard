@@ -1,0 +1,504 @@
+/* ===== Stake UI (premium glass) ===== */
+
+.stake-statsRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.stake-card {
+  border-radius: 16px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: 0 0 18px rgba(59, 130, 246, 0.07);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.stake-statCard {
+  min-height: 84px;
+}
+
+.stake-statTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.stake-statLabel {
+  font-size: 12px;
+  letter-spacing: 0.2px;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 700;
+}
+
+.stake-spark {
+  width: 86px;
+  height: 26px;
+  opacity: 0.95;
+  filter: drop-shadow(0 0 10px rgba(52, 211, 153, 0.18));
+}
+
+.stake-statBottom {
+  margin-top: 10px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.stake-statValue {
+  font-size: 22px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.94);
+  letter-spacing: 0.2px;
+}
+
+.stake-statDelta {
+  font-size: 12px;
+  font-weight: 800;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.stake-statDelta.up {
+  color: rgba(52, 211, 153, 0.95);
+}
+
+.stake-statDelta.down {
+  color: rgba(248, 113, 113, 0.95);
+}
+
+@media (max-width: 900px) {
+  .stake-statsRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+/* ===== Portfolio Overview Card ===== */
+
+.stake-portfolioCard {
+  padding: 18px;
+  min-height: 340px;   /* makes it taller like reference */
+}
+
+.stake-cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.stake-cardTitle {
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 14px;
+}
+
+.stake-portfolioList {
+  display: flex;
+  flex-direction: column;
+}
+
+.stake-portfolioRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.stake-portfolioRow:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.stake-tokenLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stake-tokenIcon {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: 0 0 18px rgba(59, 130, 246, 0.08);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* little color hints */
+.stake-tokenIcon.sol { background: rgba(56, 189, 248, 0.14); }
+.stake-tokenIcon.usdc { background: rgba(59, 130, 246, 0.14); }
+.stake-tokenIcon.strk { background: rgba(168, 85, 247, 0.14); }
+.stake-tokenIcon.ray { background: rgba(34, 211, 238, 0.14); }
+
+.stake-tokenSym {
+  font-weight: 850;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.stake-tokenSub {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 2px;
+}
+
+.stake-tokenRight {
+  text-align: right;
+}
+
+.stake-tokenTop {
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 13px;
+}
+
+.stake-viewAll {
+  margin-top: 10px;
+ height: 40px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 160ms ease;
+}
+
+.stake-viewAll:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-1px);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ===== Left Wide Portfolio Card ===== */
+
+.stake-leftPortfolio {
+  padding: 18px;
+  min-height: 170px;
+}
+
+.stake-leftRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+}
+
+.stake-leftToken {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stake-bigValue {
+  font-size: 18px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.92);
+}
+
+.stake-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  margin: 14px 0;
+}
+
+/* ===== Rewards Calculator ===== */
+
+.stake-rewardCard {
+  padding: 18px;
+  min-height: 170px;
+}
+
+.stake-calcRow {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.stake-inputGroup {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.stake-inputGroup label {
+  font-size: 12px;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 6px;
+}
+
+.stake-inputGroup input,
+.stake-inputGroup select {
+  height: 38px;
+  border-radius: 10px;
+   background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.10);
+  color: white;
+  padding: 0 10px;
+}
+
+.stake-calcBottom {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stake-calcBtn {
+  height: 36px;
+  padding: 0 18px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 800;
+  background: linear-gradient(135deg, #34d399, #22d3ee);
+  color: #071022;
+  cursor: pointer;
+  transition: all 160ms ease;
+}
+
+.stake-calcBtn:hover {
+  transform: translateY(-1px);
+}
+
+/* ===== Lock Period Options ===== */
+
+.stake-lockWrap {
+  padding: 18px;
+  margin-top: 14px;
+}
+
+.stake-lockHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.stake-lockMeta {
+  display: flex;
+  gap: 8px;
+}
+
+.pill {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.65);
+  font-weight: 800;
+}
+
+.stake-lockGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.stake-lockCard {
+  border-radius: 14px;
+  padding: 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.stake-lockTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.stake-lockDays {
+  font-weight: 900;
+  color: rgba(255,255,255,0.92);
+}
+
+.stake-lockDays .big {
+  font-size: 22px;
+}
+
+.stake-lockReward {
+  text-align: right;
+}
+
+.stake-lockReward .val {
+  font-weight: 900;
+  color: rgba(255,255,255,0.92);
+}
+
+.stake-lockReward .sub {
+  font-size: 12px;
+  margin-top: 4px;
+  color: rgba(255,255,255,0.55);
+  font-weight: 700;
+}
+
+.stake-lockBtn {
+  height: 34px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.10);
+  font-weight: 900;
+  cursor: pointer;
+  transition: all 160ms ease;
+  color: rgba(255,255,255,0.92);
+  background: rgba(255,255,255,0.06);
+}
+
+.stake-lockBtn:hover {
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.10);
+}
+
+/* gradient tones */
+.stake-lockBtn.violet { background: rgba(139,92,246,0.25); }
+.stake-lockBtn.cyan { background: rgba(34,211,238,0.22); }
+.stake-lockBtn.blue { background: rgba(59,130,246,0.22); }
+.stake-lockBtn.teal { background: rgba(20,184,166,0.22); }
+
+.stake-lockHint {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.6);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+@media (max-width: 1000px) {
+  .stake-lockGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .stake-lockGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Transaction History Card ===== */
+
+.stake-txCard {
+  padding: 18px;
+  min-height: 260px;
+}
+
+.stake-txHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.stake-miniBtn {
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.70);
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 160ms ease;
+}
+
+.stake-miniBtn:hover {
+  background: rgba(255,255,255,0.08);
+  transform: translateY(-1px);
+  color: rgba(255,255,255,0.9);
+}
+
+.stake-txList {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+.stake-txRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 2px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.stake-txLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stake-txDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  box-shadow: 0 0 12px rgba(255,255,255,0.10);
+}
+
+.stake-txDot.pos {
+  background: rgba(52,211,153,0.95);
+  box-shadow: 0 0 12px rgba(52,211,153,0.25);
+}
+.stake-txDot.neg {
+  background: rgba(248,113,113,0.95);
+  box-shadow: 0 0 12px rgba(248,113,113,0.22);
+}
+.stake-txDot.neutral {
+  background: rgba(59,130,246,0.95);
+  box-shadow: 0 0 12px rgba(59,130,246,0.18);
+}
+
+.stake-txName {
+  font-weight: 850;
+  color: rgba(255,255,255,0.85);
+  font-size: 13px;
+}
+
+.stake-txAmt {
+  font-weight: 900;
+  font-size: 13px;
+}
+
+.stake-txAmt.pos {
+  color: rgba(52,211,153,0.95);
+}
+
+.stake-txAmt.neg {
+  color: rgba(248,113,113,0.95);
+}
+
+.stake-txAmt.neutral {
+  color: rgba(255,255,255,0.80);
+}
+.stake-card {
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.stake-card:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.07);
+}
